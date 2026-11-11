@@ -37,6 +37,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   and files that cannot be decoded completely get that tree instead of a partial box list
 - `StsdBox`, `DrefBox`, `VisualSampleEntryBox`, `AudioSampleEntryBox`, `StppBox`, `WvttBox`, `TrepBox` and
   `EvteBox` implement `ContainerBox`
+- `Faststart` moves the `moov` box of a progressive, self-contained file in front of its non-empty `mdat` box,
+  keeping every other top-level box and the `mdat` header and payload unchanged, rewriting the `stco`/`co64`
+  chunk offsets for the new layout and upgrading overflowing `stco` boxes to `co64`, with the `mp4ff-faststart`
+  command line tool exposing it
 
 ### Changed
 

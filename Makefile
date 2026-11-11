@@ -2,7 +2,7 @@
 all: test check coverage build
 
 .PHONY: build
-build: mp4ff-crop mp4ff-decrypt mp4ff-defragment mp4ff-encrypt mp4ff-info mp4ff-mvhevc mp4ff-nallister mp4ff-pslister mp4ff-subslister examples
+build: mp4ff-crop mp4ff-decrypt mp4ff-defragment mp4ff-encrypt mp4ff-faststart mp4ff-info mp4ff-mvhevc mp4ff-nallister mp4ff-pslister mp4ff-subslister examples
 
 .PHONY: prepare
 prepare:
@@ -10,8 +10,8 @@ prepare:
 
 # Building ./cmd/<tool> as a package makes Go embed the version from git, which the tools report.
 # The -X flags are for builds from a source archive, without git, where packagers replace the git commands.
-.PHONY: mp4ff-crop mp4ff-decrypt mp4ff-defragment mp4ff-encrypt mp4ff-info mp4ff-mvhevc mp4ff-nallister mp4ff-pslister mp4ff-subslister
-mp4ff-crop mp4ff-decrypt mp4ff-defragment mp4ff-encrypt mp4ff-info mp4ff-mvhevc mp4ff-nallister mp4ff-pslister mp4ff-subslister:
+.PHONY: mp4ff-crop mp4ff-decrypt mp4ff-defragment mp4ff-encrypt mp4ff-faststart mp4ff-info mp4ff-mvhevc mp4ff-nallister mp4ff-pslister mp4ff-subslister
+mp4ff-crop mp4ff-decrypt mp4ff-defragment mp4ff-encrypt mp4ff-faststart mp4ff-info mp4ff-mvhevc mp4ff-nallister mp4ff-pslister mp4ff-subslister:
 	go build -ldflags "-X github.com/Eyevinn/mp4ff/internal.commitVersion=$$(git describe --tags HEAD) -X github.com/Eyevinn/mp4ff/internal.commitDate=$$(git log -1 --format=%ct)" -o out/$@ ./cmd/$@
 
 .PHONY: examples

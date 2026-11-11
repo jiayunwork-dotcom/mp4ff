@@ -25,6 +25,12 @@ builds:
     goos: [linux, darwin, windows]
     goarch: [amd64, arm64]
 
+  - id: mp4ff-faststart
+    main: ./cmd/mp4ff-faststart
+    binary: mp4ff-faststart
+    goos: [linux, darwin, windows]
+    goarch: [amd64, arm64]
+
   - id: mp4ff-info
     main: ./cmd/mp4ff-info
     binary: mp4ff-info
